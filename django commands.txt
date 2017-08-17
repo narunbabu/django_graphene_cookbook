@@ -1,0 +1,262 @@
+mkdir cookbook
+cd cookbook
+virtualenv env
+env\Scripts\activate.bat
+pip install django
+pip install graphene_django
+django-admin.py startproject cookbook . 
+cd cookbook
+django-admin.py startapp ingredients
+cd..
+
+add to settings.py
+'cookbook.ingredients',
+python manage.py migrate
+
+in d/SoftwareWebApps/GraphQL/cookbook
+python manage.py makemigrations
+python manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
+
+in /cookbook/cookbook
+python ../manage.py loaddata ingredients #means you should be in cookbook/cookbook
+python ../manage.py loaddata ingredients
+
+python ./manage.py runserver
+
+Detailed Run
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL
+/cookbook
+$ python manage.py makemigrations
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    execute_from_command_line(sys.argv)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\core\management\__init__.py", line 363, i
+n execute_from_command_line
+    utility.execute()
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\core\management\__init__.py", line 337, i
+n execute
+    django.setup()
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\apps\registry.py", line 85, in populate
+    app_config = AppConfig.create(entry)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\apps\config.py", line 94, in create
+    module = import_module(entry)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\impor
+tlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package,
+level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd
+_import
+  File "<frozen importlib._bootstrap>", line 961, in _fin
+d_and_load
+  File "<frozen importlib._bootstrap>", line 948, in _fin
+d_and_load_unlocked
+ModuleNotFoundError: No module named 'ingredients'
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL
+/cookbook
+$ cd cookbook/
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL
+/cookbook/cookbook
+$ ls
+__init__.py  ingredients  urls.py
+__pycache__  settings.py  wsgi.py
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL
+/cookbook/cookbook
+$ python ./manage.py makemigrations
+D:\SoftwareWebApps\GraphQL\cookbook\env\Scripts\python.ex
+e: can't open file './manage.py': [Errno 2] No such file
+or directory
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL
+/cookbook/cookbook
+$ python .//manage.py makemigrations
+D:\SoftwareWebApps\GraphQL\cookbook\env\Scripts\python.ex
+e: can't open file './/manage.py': [Errno 2] No such file
+ or directory
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL
+/cookbook/cookbook
+$ python ../manage.py makemigrations
+Traceback (most recent call last):
+  File "../manage.py", line 22, in <module>
+    execute_from_command_line(sys.argv)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\core\management\__init__.py", line 363, i
+n execute_from_command_line
+    utility.execute()
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\core\management\__init__.py", line 337, i
+n execute
+    django.setup()
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\apps\registry.py", line 85, in populate
+    app_config = AppConfig.create(entry)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-
+packages\django\apps\config.py", line 94, in create
+    module = import_module(entry)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 948, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ingredients'
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook/cookbook
+$ python manage.py migrate
+D:\SoftwareWebApps\GraphQL\cookbook\env\Scripts\python.exe: can't open file 'manage.py': [Errno 2] No such file or directo
+ry
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook/cookbook
+$ python ../manage.py migrate
+Traceback (most recent call last):
+  File "../manage.py", line 22, in <module>
+    execute_from_command_line(sys.argv)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\core\management\__init__.py", line 363, in execut
+e_from_command_line
+    utility.execute()
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\core\management\__init__.py", line 337, in execut
+e
+    django.setup()
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\apps\registry.py", line 85, in populate
+    app_config = AppConfig.create(entry)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\apps\config.py", line 94, in create
+    module = import_module(entry)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 948, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ingredients'
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook/cookbook
+$ pwd
+/d/SoftwareWebApps/GraphQL/cookbook/cookbook
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook/cookbook
+$ cd..
+bash: cd..: command not found
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook/cookbook
+$ python manage.py migrate
+D:\SoftwareWebApps\GraphQL\cookbook\env\Scripts\python.exe: can't open file 'manage.py': [Errno 2] No such file or directo
+ry
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook/cookbook
+$ lls
+bash: lls: command not found
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook/cookbook
+$ ls
+__init__.py  __pycache__  ingredients  settings.py  urls.py  wsgi.py
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook/cookbook
+$ pwd
+/d/SoftwareWebApps/GraphQL/cookbook/cookbook
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook/cookbook
+$ cd ..
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook
+$ python manage.py migrate
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    execute_from_command_line(sys.argv)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\core\management\__init__.py", line 363, in execut
+e_from_command_line
+    utility.execute()
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\core\management\__init__.py", line 337, in execut
+e
+    django.setup()
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\__init__.py", line 27, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\apps\registry.py", line 85, in populate
+    app_config = AppConfig.create(entry)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\site-packages\django\apps\config.py", line 94, in create
+    module = import_module(entry)
+  File "D:\SoftwareWebApps\GraphQL\cookbook\env\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 948, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'ingredients'
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook
+$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  No migrations to apply.
+  Your models have changes that are not yet reflected in a migration, and so won't be applied.
+  Run 'manage.py makemigrations' to make new migrations, and then re-run 'manage.py migrate' to apply them.
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook
+$ manage.py makemigrations
+bash: manage.py: command not found
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook
+$ python manage.py makemigrations
+Migrations for 'ingredients':
+  cookbook\ingredients\migrations\0001_initial.py
+    - Create model Category
+    - Create model Ingredient
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook
+$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, ingredients, sessions
+Running migrations:
+  Applying ingredients.0001_initial... OK
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook
+$ python manage.py makemigrations
+No changes detected
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook
+$ pwd
+/d/SoftwareWebApps/GraphQL/cookbook
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL/cookbook
+aphQL/cookbook
+$ cd cookbook/
+                                                    aphQL/cookbook/cookbook
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/Gr
+aphQL/cookbook/cookbook
+$ python ../manage.py loaddata ingredients
+Installed 6 object(s) from 1 fixture(s)             aphQL/cookbook/cookbook
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/Gr
+aphQL/cookbook/cookbook                             aphQL/cookbook/cookbook
+$
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/Gr
+aphQL/cookbook/cookbook
+$ pwd
+/d/SoftwareWebApps/GraphQL/cookbook/cookbook
+
+vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/Gr
+aphQL/cookbook/cookbook
+$ python ../manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+August 17, 2017 - 02:38:57
+Django version 1.11.4, using settings 'cookbook.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[17/Aug/2017 02:39:07] "GET / HTTP/1.1" 200 1716
