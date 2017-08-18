@@ -23,7 +23,7 @@ in /cookbook/cookbook
 python ../manage.py loaddata ingredients #means you should be in cookbook/cookbook
 python ../manage.py loaddata ingredients
 
-python ./manage.py runserver
+python ../manage.py runserver
 
 Detailed Run
 vedadi@DESKTOP-DMOHC4A MINGW64 /d/SoftwareWebApps/GraphQL
